@@ -6,7 +6,7 @@ import { addItem } from  './actions/items';
 class App extends Component {
 
   handleOnClick() {
-    this.props.addItem(); //remove store & dispatch
+    this.props.dispatch(addItem()); //remove store & dispatch & put addItem() backin as argument
   }
 
   render() {
@@ -38,4 +38,5 @@ class App extends Component {
 
 // export default connect(mapStateToProps, mapDispatchToProps)(App);
 // export default connect(mapStateToProps, {addItem})(App);
-export default connect(state =>({items: state.items}), {addItem})(App);
+// export default connect(state =>({items: state.items}), {addItem})(App);
+export default connect(state => ({ items: state.items }))(App);
